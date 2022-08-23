@@ -1,12 +1,12 @@
 import requests
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup as bs
 
 
 def PrintHeaders(url):
     r = requests.get(url)
     r_html = r.text
 
-    soup = BeautifulSoup(r_html, 'html.parser')
+    soup = bs(r_html, 'html.parser')
     title = soup.find_all("h3")
 
     headers = []
