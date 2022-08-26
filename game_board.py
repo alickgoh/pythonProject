@@ -16,5 +16,5 @@ class Games:
 
 
 if __name__ == "__main__":
-    gs = Games(int(input('Please input the size of game board: ')))
-    gs.game_board()
+    gbs = Games(int(input('Please input the size of game board: ')))
+    gbs.game_board()
