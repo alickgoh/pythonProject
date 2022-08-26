@@ -7,10 +7,10 @@ adder(3, 4, 5, 1, 2, 3, 4, 7)
 
 
 def intro(**data):
-    print("\nData type of argument:",type(data))
+    print("\nData type of argument:", type(data))
 
     for key, value in data.items():
-        print("{} is {}".format(key, value))
+        print(f'{key} is {value}')
 
 
 intro(Firstname="Sita", Lastname="Sharma", Age=22, Phone=1234567890, Country="Kakashi")
