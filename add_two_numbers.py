@@ -4,19 +4,11 @@ class Solution:
         self.list2 = list2
 
     def addTwoNumbers(self):
-        list1a = "".join(map(str, self.list1))
-        list2a = "".join(map(str, self.list2))
-
-        rvs1 = list1a[::-1]
-        rvs2 = list2a[::-1]
-
-        total = int(rvs1) + int(rvs2)
-
-        total = list(map(int, str(total)))
-        return total[::-1]
+        total = [self.list1 + self.list2 for self.list1, self.list2 in zip(self.list1, self.list2)]
+        return total
 
 
-l1 = [0,0]
-l2 = [0]
+l1 = [1, 2, 3]
+l2 = [4, 5, 6]
 Sol = Solution(l1, l2)
 print(Sol.addTwoNumbers())
