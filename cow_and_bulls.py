@@ -14,34 +14,32 @@ def cow_and_bulls():
 
     while guess_correctly is not True:
         guess_count += 1
-        guess_duplicate_check = False
-        while guess_duplicate_check is not True:
-            guess = input(">>> ")
-            if len(set(guess)) < len(answer):
-                print("Digit cannot be duplicate")
-            else:
-                guess_duplicate_check = True
+        guess = ""
 
-        if guess.isnumeric() and len(guess) == len(answer):
-            if guess == answer:
-                print(f"Congratulation, the answer is correct and your guess count is {guess_count}")
-                guess_correctly = True
+        while guess != answer:
+            guess = input(">>> ")
+
+            if guess.isnumeric() and len(guess) == len(answer):
+                if guess == answer:
+                    print(f"Congratulation, the answer is correct and your guess count is {guess_count}")
+                    guess_correctly = True
+                elif len(set(guess)) < 4:
+                    print("Digit cannot be duplicate")
+                else:
+                    cow = 0
+                    bulls = 0
+                    for z in range(len(answer)):
+                        if answer[z] == guess[z]:
+                            cow += 1
+                        elif answer[z] in guess:
+                            bulls += 1
+                    print(f"{cow} Cows, {bulls} Bulls")
+            elif guess.isnumeric() and len(guess) != len(answer):
+                print("Must be in 4 digit to play the guess game!")
+            elif guess.lower() == "exit":
+                print("Good Bye")
             else:
-                cow = 0
-                bulls = 0
-                for z in range(len(answer)):
-                    if answer[z] == guess[z]:
-                        cow += 1
-                    elif answer[z] in guess:
-                        bulls += 1
-                print(f"{cow} Cows, {bulls} Bulls")
-        elif guess.isnumeric() and len(guess) != len(answer):
-            print("Must be in 4 digit to play the guess game!")
-        elif guess.lower() == "exit":
-            print("Good Bye")
-            break
-        else:
-            print("No alphabets and symbols allow!")
+                print("No alphabets and symbols allow!")
 
 
 if __name__ == "__main__":
